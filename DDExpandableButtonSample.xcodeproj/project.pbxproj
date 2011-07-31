@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69BA0C4513E4771700CA7570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C4413E4771700CA7570 /* UIKit.framework */; };
+		69BA0C4713E4771700CA7570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C4613E4771700CA7570 /* Foundation.framework */; };
+		69BA0C4913E4771700CA7570 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C4813E4771700CA7570 /* CoreGraphics.framework */; };
+		69BA0C5213E4771700CA7570 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0C5113E4771700CA7570 /* main.m */; };
+		69BA0C5513E4771700CA7570 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0C5413E4771700CA7570 /* SampleAppDelegate.m */; };
+		69BA0C5B13E4771700CA7570 /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0C5A13E4771700CA7570 /* SampleViewController.m */; };
+		69BA0C6B13E4773F00CA7570 /* DDExpandableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0C6A13E4773F00CA7570 /* DDExpandableButton.m */; };
+		69BA0C6E13E477EE00CA7570 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C6D13E477EE00CA7570 /* QuartzCore.framework */; };
+		69BA0C7813E478E000CA7570 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C7713E478E000CA7570 /* AVFoundation.framework */; };
+		69BA0C7C13E4828700CA7570 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0C7A13E4828700CA7570 /* Icon@2x.png */; };
+		69BA0C7D13E4828700CA7570 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0C7B13E4828700CA7570 /* Icon.png */; };
+		69BA0C8013E4B39900CA7570 /* Flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0C7E13E4B39900CA7570 /* Flash.png */; };
+		69BA0C8113E4B39900CA7570 /* Flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0C7F13E4B39900CA7570 /* Flash@2x.png */; };
+		69BA0C8313E4B7FE00CA7570 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0C8213E4B7FE00CA7570 /* Icon-72.png */; };
+		69BA0CAE13E5DCCA00CA7570 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0CAD13E5DCCA00CA7570 /* Default.png */; };
+		69BA0CB113E5DCEB00CA7570 /* SampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0CAF13E5DCEB00CA7570 /* SampleViewController.xib */; };
+		69BA0CB213E5DCEB00CA7570 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0CB013E5DCEB00CA7570 /* MainWindow.xib */; };
+		69BA0CB613E5E04700CA7570 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0CB513E5E04600CA7570 /* README.markdown */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		69BA0C4013E4771700CA7570 /* DDExpButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDExpButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69BA0C4413E4771700CA7570 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		69BA0C4613E4771700CA7570 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		69BA0C4813E4771700CA7570 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		69BA0C4C13E4771700CA7570 /* DDExpandableButtonSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DDExpandableButtonSample-Info.plist"; sourceTree = "<group>"; };
+		69BA0C5013E4771700CA7570 /* DDExpandableButtonSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDExpandableButtonSample-Prefix.pch"; sourceTree = "<group>"; };
+		69BA0C5113E4771700CA7570 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		69BA0C5313E4771700CA7570 /* SampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAppDelegate.h; sourceTree = "<group>"; };
+		69BA0C5413E4771700CA7570 /* SampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleAppDelegate.m; sourceTree = "<group>"; };
+		69BA0C5913E4771700CA7570 /* SampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
+		69BA0C5A13E4771700CA7570 /* SampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
+		69BA0C6913E4773F00CA7570 /* DDExpandableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDExpandableButton.h; sourceTree = "<group>"; };
+		69BA0C6A13E4773F00CA7570 /* DDExpandableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDExpandableButton.m; sourceTree = "<group>"; };
+		69BA0C6D13E477EE00CA7570 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		69BA0C7713E478E000CA7570 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		69BA0C7A13E4828700CA7570 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		69BA0C7B13E4828700CA7570 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		69BA0C7E13E4B39900CA7570 /* Flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flash.png; sourceTree = "<group>"; };
+		69BA0C7F13E4B39900CA7570 /* Flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Flash@2x.png"; sourceTree = "<group>"; };
+		69BA0C8213E4B7FE00CA7570 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		69BA0CAD13E5DCCA00CA7570 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		69BA0CAF13E5DCEB00CA7570 /* SampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleViewController.xib; sourceTree = "<group>"; };
+		69BA0CB013E5DCEB00CA7570 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		69BA0CB513E5E04600CA7570 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69BA0C3D13E4771700CA7570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69BA0C7813E478E000CA7570 /* AVFoundation.framework in Frameworks */,
+				69BA0C6E13E477EE00CA7570 /* QuartzCore.framework in Frameworks */,
+				69BA0C4513E4771700CA7570 /* UIKit.framework in Frameworks */,
+				69BA0C4713E4771700CA7570 /* Foundation.framework in Frameworks */,
+				69BA0C4913E4771700CA7570 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69BA0C3513E4771700CA7570 = {
+			isa = PBXGroup;
+			children = (
+				69BA0CB513E5E04600CA7570 /* README.markdown */,
+				69BA0C6813E4773F00CA7570 /* DDExpandableButton */,
+				69BA0C4A13E4771700CA7570 /* DDExpandableButtonSample */,
+				69BA0C4313E4771700CA7570 /* Frameworks */,
+				69BA0C4113E4771700CA7570 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69BA0C4113E4771700CA7570 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69BA0C4013E4771700CA7570 /* DDExpButton.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69BA0C4313E4771700CA7570 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69BA0C7713E478E000CA7570 /* AVFoundation.framework */,
+				69BA0C6D13E477EE00CA7570 /* QuartzCore.framework */,
+				69BA0C4413E4771700CA7570 /* UIKit.framework */,
+				69BA0C4613E4771700CA7570 /* Foundation.framework */,
+				69BA0C4813E4771700CA7570 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69BA0C4A13E4771700CA7570 /* DDExpandableButtonSample */ = {
+			isa = PBXGroup;
+			children = (
+				69BA0CB013E5DCEB00CA7570 /* MainWindow.xib */,
+				69BA0C5313E4771700CA7570 /* SampleAppDelegate.h */,
+				69BA0C5413E4771700CA7570 /* SampleAppDelegate.m */,
+				69BA0CAF13E5DCEB00CA7570 /* SampleViewController.xib */,
+				69BA0C5913E4771700CA7570 /* SampleViewController.h */,
+				69BA0C5A13E4771700CA7570 /* SampleViewController.m */,
+				69BA0C4B13E4771700CA7570 /* Supporting Files */,
+			);
+			path = DDExpandableButtonSample;
+			sourceTree = "<group>";
+		};
+		69BA0C4B13E4771700CA7570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69BA0CAD13E5DCCA00CA7570 /* Default.png */,
+				69BA0C7E13E4B39900CA7570 /* Flash.png */,
+				69BA0C7F13E4B39900CA7570 /* Flash@2x.png */,
+				69BA0C7B13E4828700CA7570 /* Icon.png */,
+				69BA0C8213E4B7FE00CA7570 /* Icon-72.png */,
+				69BA0C7A13E4828700CA7570 /* Icon@2x.png */,
+				69BA0C4C13E4771700CA7570 /* DDExpandableButtonSample-Info.plist */,
+				69BA0C5013E4771700CA7570 /* DDExpandableButtonSample-Prefix.pch */,
+				69BA0C5113E4771700CA7570 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69BA0C6813E4773F00CA7570 /* DDExpandableButton */ = {
+			isa = PBXGroup;
+			children = (
+				69BA0C6913E4773F00CA7570 /* DDExpandableButton.h */,
+				69BA0C6A13E4773F00CA7570 /* DDExpandableButton.m */,
+			);
+			path = DDExpandableButton;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69BA0C3F13E4771700CA7570 /* DDExpButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69BA0C6113E4771700CA7570 /* Build configuration list for PBXNativeTarget "DDExpButton" */;
+			buildPhases = (
+				69BA0C3C13E4771700CA7570 /* Sources */,
+				69BA0C3D13E4771700CA7570 /* Frameworks */,
+				69BA0C3E13E4771700CA7570 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDExpButton;
+			productName = DDExpandableButtonSample;
+			productReference = 69BA0C4013E4771700CA7570 /* DDExpButton.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69BA0C3713E4771700CA7570 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = SmartApps;
+			};
+			buildConfigurationList = 69BA0C3A13E4771700CA7570 /* Build configuration list for PBXProject "DDExpandableButtonSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 69BA0C3513E4771700CA7570;
+			productRefGroup = 69BA0C4113E4771700CA7570 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69BA0C3F13E4771700CA7570 /* DDExpButton */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69BA0C3E13E4771700CA7570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69BA0C7C13E4828700CA7570 /* Icon@2x.png in Resources */,
+				69BA0C7D13E4828700CA7570 /* Icon.png in Resources */,
+				69BA0C8013E4B39900CA7570 /* Flash.png in Resources */,
+				69BA0C8113E4B39900CA7570 /* Flash@2x.png in Resources */,
+				69BA0C8313E4B7FE00CA7570 /* Icon-72.png in Resources */,
+				69BA0CAE13E5DCCA00CA7570 /* Default.png in Resources */,
+				69BA0CB113E5DCEB00CA7570 /* SampleViewController.xib in Resources */,
+				69BA0CB213E5DCEB00CA7570 /* MainWindow.xib in Resources */,
+				69BA0CB613E5E04700CA7570 /* README.markdown in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69BA0C3C13E4771700CA7570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69BA0C5213E4771700CA7570 /* main.m in Sources */,
+				69BA0C5513E4771700CA7570 /* SampleAppDelegate.m in Sources */,
+				69BA0C5B13E4771700CA7570 /* SampleViewController.m in Sources */,
+				69BA0C6B13E4773F00CA7570 /* DDExpandableButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		69BA0C5F13E4771700CA7570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69BA0C6013E4771700CA7570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		69BA0C6213E4771700CA7570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DDExpandableButtonSample/DDExpandableButtonSample-Prefix.pch";
+				INFOPLIST_FILE = "DDExpandableButtonSample/DDExpandableButtonSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		69BA0C6313E4771700CA7570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DDExpandableButtonSample/DDExpandableButtonSample-Prefix.pch";
+				INFOPLIST_FILE = "DDExpandableButtonSample/DDExpandableButtonSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69BA0C3A13E4771700CA7570 /* Build configuration list for PBXProject "DDExpandableButtonSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69BA0C5F13E4771700CA7570 /* Debug */,
+				69BA0C6013E4771700CA7570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69BA0C6113E4771700CA7570 /* Build configuration list for PBXNativeTarget "DDExpButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69BA0C6213E4771700CA7570 /* Debug */,
+				69BA0C6313E4771700CA7570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69BA0C3713E4771700CA7570 /* Project object */;
+}
