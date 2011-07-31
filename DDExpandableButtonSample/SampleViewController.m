@@ -16,7 +16,7 @@
     [super dealloc];
 }
 
-#pragma mark - View lifecycle
+#pragma mark View lifecycle
 
 - (void)viewDidLoad
 {
@@ -29,6 +29,8 @@
 	[torchModeButton addTarget:self action:@selector(toggleFlashlight:) forControlEvents:UIControlEventValueChanged];
 	[torchModeButton setVerticalPadding:6];
 	[torchModeButton updateDisplay];
+
+	[torchModeButton setSelectedItem:2];
 
 	// Torch related settings
 	// Setting up flashlight for later use...
@@ -67,15 +69,15 @@
         }
     }
 
-	[[[self.view viewWithTag:10] layer] setBorderColor:[UIColor grayColor].CGColor];
+	[[[self.view viewWithTag:10] layer] setBorderColor:[UIColor blackColor].CGColor];
 
 	DDExpandableButton *colorButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 70.0f)
 																	   leftTitle:@"Color"
-																		 buttons:[NSArray arrayWithObjects:@"Gray", @"Red", @"Green", @"Blue", nil]] autorelease];
+																		 buttons:[NSArray arrayWithObjects:@"Black", @"Red", @"Green", @"Blue", nil]] autorelease];
 	[[self view] addSubview:colorButton];
 	[colorButton addTarget:self action:@selector(toggleColor:) forControlEvents:UIControlEventValueChanged];
 
-	[[colorButton.labels objectAtIndex:0] setHighlightedTextColor:[UIColor grayColor]];
+	[[colorButton.labels objectAtIndex:0] setHighlightedTextColor:[UIColor blackColor]];
 	[[colorButton.labels objectAtIndex:1] setHighlightedTextColor:[UIColor redColor]];
 	[[colorButton.labels objectAtIndex:2] setHighlightedTextColor:[UIColor greenColor]];
 	[[colorButton.labels objectAtIndex:3] setHighlightedTextColor:[UIColor blueColor]];
@@ -110,7 +112,7 @@
 	switch ([sender selectedItem])
 	{
 		default:
-			[[[self.view viewWithTag:10] layer] setBorderColor:[UIColor grayColor].CGColor];
+			[[[self.view viewWithTag:10] layer] setBorderColor:[UIColor blackColor].CGColor];
 			break;
 		case 1:
 			[[[self.view viewWithTag:10] layer] setBorderColor:[UIColor redColor].CGColor];
