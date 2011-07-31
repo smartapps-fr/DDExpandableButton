@@ -13,57 +13,57 @@ Properties
 
 A DDExpandableButton has the following properties:
 
-	@property (nonatomic,assign)	BOOL		expanded;
+ - `@property (nonatomic,assign)	BOOL			expanded;`
 
-Current button status (if expanded or shrunk).
+	Current button status (if expanded or shrunk).
 
-	@property (nonatomic,assign)	BOOL		useAnimation;
+ - `@property (nonatomic,assign)	BOOL			useAnimation;`
 
-Use animation during button state stransitions.
+	Use animation during button state stransitions.
 
-	@property (nonatomic,assign)	CGFloat		timeout;
+ - `@property (nonatomic,assign)	CGFloat		timeout;`
 
-To shrink the button after a timeout. Use `0` if you want to disable timeout.
+	To shrink the button after a timeout. Use `0` if you want to disable timeout.
 
-	@property (nonatomic,assign)	CGFloat 	horizontalPadding;
+ - `@property (nonatomic,assign)	CGFloat 		horizontalPadding;`
 
-Horizontal padding space between items.
+	Horizontal padding space between items.
 	
-	@property (nonatomic,assign)	CGFloat 	verticalPadding;
+ - `@property (nonatomic,assign)	CGFloat 		verticalPadding;`
 
-Vertical padding space above and below items.
+	Vertical padding space above and below items.
 
-	@property (nonatomic,assign)	CGFloat 	borderWidth;
+ - `@property (nonatomic,assign)	CGFloat 		borderWidth;`
 
-Width (thickness) of the button border.
+	Width (thickness) of the button border.
 
-	@property (nonatomic,assign)	CGFloat 	innerBorderWidth;
+ - `@property (nonatomic,assign)	CGFloat 		innerBorderWidth;`
 
-Width (thickness) of the inner borders between items.
+	Width (thickness) of the inner borders between items.
 
-	@property (nonatomic,assign)	NSUInteger	selectedItem;
+ - `@property (nonatomic,assign)	NSUInteger	selectedItem;`
 
-Selected item number.
+	Selected item number.
 
-	@property (nonatomic,retain)	UIColor		*borderColor;
+ - `@property (nonatomic,retain)	UIColor		*borderColor;`
 
-Color of the button and inner borders.
+	Color of the button and inner borders.
 
-	@property (nonatomic,retain)	UIColor		*textColor;
+ - `@property (nonatomic,retain)	UIColor		*textColor;`
 
-Color of text labels.
+	Color of text labels.
 
-	@property (nonatomic,retain)	UIFont		*labelFont;
+ - `@property (nonatomic,retain)	UIFont		*labelFont;`
 
-Font of text labels.
+	Font of text labels.
 
-	@property (nonatomic,retain)	UIFont		*unSelectedLabelFont;
+ - `@property (nonatomic,retain)	UIFont		*unSelectedLabelFont;`
 
-Font of unselected text labels. `Nil` if not different from `labelFont`.
+	Font of unselected text labels. `Nil` if not different from `labelFont`.
 
-	@property (nonatomic,readonly)	NSArray 	*labels;
+ - `@property (nonatomic,readonly)	NSArray 	*labels;`
 
-Access `UIView` used to draw labels.
+	Access `UIView` used to draw labels.
 
 
 Methods
@@ -71,33 +71,33 @@ Methods
 
 A DDExpandableButton has the following methods:
 
-	- (id)initWithPoint:(CGPoint)point leftTitle:(id)leftTitle buttons:(NSArray *)buttons;
+ - `- (id)initWithPoint:(CGPoint)point leftTitle:(id)leftTitle buttons:(NSArray *)buttons;`
 
-*Init* method where you can specify `leftTitle` and `buttons`.
+	*Init* method where you can specify `leftTitle` and `buttons`.
 
-	- (void)setSelectedItem:(NSUInteger)selected animated:(BOOL)animated;
+ - `- (void)setSelectedItem:(NSUInteger)selected animated:(BOOL)animated;`
 
-*Animated* version of `- (void)setSelectedItem:(NSUInteger)selected`.
+	*Animated* version of `- (void)setSelectedItem:(NSUInteger)selected`.
 
-	- (void)setExpanded:(BOOL)expanded animated:(BOOL)animated;
+ - `- (void)setExpanded:(BOOL)expanded animated:(BOOL)animated;`
 
-*Animated* version of `- (void)setExpanded:(BOOL)expanded`.
+	*Animated* version of `- (void)setExpanded:(BOOL)expanded`.
 
-	- (void)setLeftTitle:(id)leftTitle;
+ - `- (void)setLeftTitle:(id)leftTitle;`
 
-Set left title view : you can use a `NSString`, an `UIImage` or any `UIView` (but the view must implement `DDExpandableButtonViewSource` protocol).
+	Set left title view : you can use a `NSString`, an `UIImage` or any `UIView` (but the view must implement `DDExpandableButtonViewSource` protocol).
 
-	- (void)setButtons:(NSArray *)buttons;
+ - `- (void)setButtons:(NSArray *)buttons;`
 
-Set buttons views : you can use a `NSString`, an `UIImage` or any `UIView` (but the view must implement `DDExpandableButtonViewSource` protocol).
+	Set buttons views : you can use a `NSString`, an `UIImage` or any `UIView` (but the view must implement `DDExpandableButtonViewSource` protocol).
 
-	- (void)disableTimeout;
+ - `- (void)disableTimeout;`
 
-If you want to disable timeout shrunk. You can set `timeout` to `0` also.
+	If you want to disable timeout shrunk. You can set `timeout` to `0` also.
 
-	- (void)updateDisplay;
+ - `- (void)updateDisplay;`
 
-When modifying button parameters, use this method to update button display.
+	When modifying button parameters, use this method to update button display.
 
 
 Protocols
@@ -105,13 +105,13 @@ Protocols
 
 The `DDExpandableButtonViewSource` protocol, used when you specify the title or the different buttons, has the following methods:
 
-	- (CGSize)defaultFrameSize;
+ - `- (CGSize)defaultFrameSize;`
 
-Returns default frame size of the view, used when expanding the button.
+	Returns default frame size of the view, used when expanding the button.
 
-	- (void)setHighlighted:(BOOL)highlighted;
+ - `- (void)setHighlighted:(BOOL)highlighted;`
 
-*Optional*, used to change appearance of selected items.
+	*Optional*, used to change appearance of selected items.
 
 
 License
