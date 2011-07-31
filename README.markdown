@@ -1,9 +1,7 @@
 Purpose
 --------------
 
-`DDExpandableButton` is a single-file class designed to be used like an expandable `UIButton` ; as seen in the iOS Camera app for the *flash* button.
-
-`DDExpandableButton` descends from `UIControl`.
+`DDExpandableButton` is a single-file iOS 3.0+ class designed to be used like an expandable `UIButton` ; as seen in the iOS Camera app for the *flash* button.
 
 *Originally inspired by [ExpandyButton](https://github.com/iosdeveloper/ExpandyButton).*
 
@@ -19,7 +17,7 @@ A DDExpandableButton has the following properties:
 
  - `@property (nonatomic,assign)	BOOL			useAnimation;`
 
-	Use animation during button state stransitions.
+	Use animation during button state transitions.
 
  - `@property (nonatomic,assign)	CGFloat		timeout;`
 
