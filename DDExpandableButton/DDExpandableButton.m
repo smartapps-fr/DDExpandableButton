@@ -369,7 +369,7 @@
 	
 	selectedItem = selected;
 
-	[self setExpanded:NO animated:(animated && expanded)];
+	[self setExpanded:NO animated:animated];
 	
 	if (notify)
 	{
