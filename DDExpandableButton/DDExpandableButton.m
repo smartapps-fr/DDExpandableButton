@@ -207,7 +207,7 @@
 	}
 
 	cornerAdditionalPadding = roundf(maxHeight/2.2f) - borderWidth - horizontalPadding;
-	leftWidth = cornerAdditionalPadding + horizontalPadding + [leftTitleView defaultFrameSize].width + ((innerBorderWidth == 0.0f)?horizontalPadding:0.0f);
+	leftWidth = cornerAdditionalPadding + ((leftTitleView != nil)?horizontalPadding:0.0f) + [leftTitleView defaultFrameSize].width + (((innerBorderWidth == 0.0f) && (leftTitleView != nil))?horizontalPadding:0.0f);
 
 	self.layer.borderWidth  = borderWidth;
 	self.layer.borderColor  = borderColor.CGColor;
@@ -434,9 +434,13 @@
 		v.contentMode = UIViewContentModeCenter;
 		return v;
 	}
+	else if (obj == nil)
+	{
+		return nil;
+	}
 	else
 	{
-		NSAssert([obj isKindOfClass:[UIView class]], @"obj must bet an UIView class !");
+		NSAssert([obj isKindOfClass:[UIView class]], @"obj must be an UIView class !");
 		NSAssert([obj respondsToSelector:@selector(defaultFrameWidth)], @"obj must implement - (CGFloat)defaultFrameWidth !");
 		return obj;
 	}
