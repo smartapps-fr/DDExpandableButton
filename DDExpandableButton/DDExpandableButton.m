@@ -72,6 +72,7 @@
 
 @synthesize selectedItem;
 @synthesize expanded;
+@synthesize toggleMode;
 @synthesize useAnimation;
 @synthesize borderColor;
 @synthesize textColor;
@@ -168,7 +169,7 @@
 {
 	[leftTitleView removeFromSuperview];
 	[leftTitleView release];
-
+	
 	leftTitleView = [[self getViewFrom:leftTitle] retain];
 	[self addSubview:leftTitleView];
 }
@@ -194,21 +195,24 @@
 - (void)updateDisplay
 {
 	// maxHeight update
+	maxWidth = 0;
 	maxHeight = [leftTitleView defaultFrameSize].height + verticalPadding * 2.0f;	
 	for (DDView *v in labels)
 	{
 		maxHeight = MAX(maxHeight, [v defaultFrameSize].height + verticalPadding * 2.0f);
+		maxWidth = MAX(maxWidth, [v defaultFrameSize].width);
 	}
-
+	NSLog(@"%f", maxWidth);
+	
 	// borderWidth update
 	for (DDView *v in labels)
 	{
 		v.layer.borderWidth = innerBorderWidth;
 	}
-
+	
 	cornerAdditionalPadding = roundf(maxHeight/2.2f) - borderWidth - horizontalPadding;
 	leftWidth = cornerAdditionalPadding + ((leftTitleView != nil)?horizontalPadding:0.0f) + [leftTitleView defaultFrameSize].width + (((innerBorderWidth == 0.0f) && (leftTitleView != nil))?horizontalPadding:0.0f);
-
+	
 	self.layer.borderWidth  = borderWidth;
 	self.layer.borderColor  = borderColor.CGColor;
 	self.layer.cornerRadius = maxHeight/2.0f;        
@@ -220,14 +224,28 @@
 
 - (CGRect)shrunkFrameRect
 {
-	DDView *currentLabel = [labels objectAtIndex:selectedItem];
-	return CGRectMake(self.frame.origin.x, self.frame.origin.y, currentLabel.frame.origin.x + currentLabel.frame.size.width + cornerAdditionalPadding, maxHeight);
+	if (toggleMode)
+	{
+		return CGRectMake(self.frame.origin.x, self.frame.origin.y, (cornerAdditionalPadding + horizontalPadding) * 2 + maxWidth, maxHeight);
+	}
+	else
+	{
+		DDView *currentLabel = [labels objectAtIndex:selectedItem];
+		return CGRectMake(self.frame.origin.x, self.frame.origin.y, currentLabel.frame.origin.x + currentLabel.frame.size.width + cornerAdditionalPadding, maxHeight);
+	}
 }
 
 - (CGRect)expandedFrameRect
 {
-	DDView *lastLabel = [labels lastObject];
-	return CGRectMake(self.frame.origin.x, self.frame.origin.y, lastLabel.frame.origin.x + lastLabel.frame.size.width + cornerAdditionalPadding, maxHeight);
+	if (toggleMode)
+	{
+		return [self shrunkFrameRect];
+	}
+	else
+	{
+		DDView *lastLabel = [labels lastObject];
+		return CGRectMake(self.frame.origin.x, self.frame.origin.y, lastLabel.frame.origin.x + lastLabel.frame.size.width + cornerAdditionalPadding, maxHeight);
+	}
 }
 
 - (CGRect)currentFrameRect
@@ -287,19 +305,19 @@
 			{
 				[v setHighlighted:YES];
 			}
-
+			
 			CGRect labelRect = CGRectMake(x, 0, [v defaultFrameSize].width + horizontalPadding * 2, maxHeight);
 			x += labelRect.size.width - v.layer.borderWidth;
 			v.frame = labelRect;
-
+			
 			if ((i > 0) && (i < ([labels count] - 1)) && (v.layer.borderWidth > 0))
 			{
 				v.layer.borderColor = borderColor.CGColor;
 			}
-
+			
             i++;
         }
-
+		
 		if (timeout > 0)
 		{
 			[self performSelector:@selector(shrinkButton) withObject:nil afterDelay:timeout];
@@ -368,7 +386,7 @@
 	BOOL notify = (selectedItem != selected);
 	
 	selectedItem = selected;
-
+	
 	[self setExpanded:NO animated:animated];
 	
 	if (notify)
@@ -381,14 +399,18 @@
 
 - (void)chooseLabel:(id)sender forEvent:(UIEvent *)event
 {
-    if (!expanded)
+	if (toggleMode)
+	{
+		[self setSelectedItem:((selectedItem + 1) % [labels count])];
+	}
+    else if (!expanded)
 	{
 		[self setExpanded:YES animated:useAnimation];
     }
 	else
 	{
         BOOL inside = NO;
-
+		
 		NSUInteger i = 0;
         for (UILabel *label in labels)
 		{

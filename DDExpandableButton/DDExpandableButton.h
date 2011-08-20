@@ -31,6 +31,7 @@
 {
 	BOOL		expanded;
 	BOOL		useAnimation;
+	BOOL		toggleMode;
 	CGFloat		timeout;
 	CGFloat 	horizontalPadding;
 	CGFloat 	verticalPadding;
@@ -45,6 +46,7 @@
 	CGFloat		cornerAdditionalPadding;
 	CGFloat 	leftWidth;
 	CGFloat 	maxHeight;
+	CGFloat 	maxWidth;
     NSArray 	*labels;
 	DDView		*leftTitleView;
 }
@@ -54,6 +56,9 @@
 
 // Use animation during button state stransitions.
 @property (nonatomic,assign)	BOOL		useAnimation;
+
+// Use button as a toggle (like "HDR On"/"HDR Off" button in camera app).
+@property (nonatomic,assign)	BOOL		toggleMode;
 
 // To shrink the button after a timeout. Use `0` if you want to disable timeout.
 @property (nonatomic,assign)	CGFloat		timeout;
