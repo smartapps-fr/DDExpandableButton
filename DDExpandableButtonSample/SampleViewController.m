@@ -71,7 +71,7 @@
 
 	[[[self.view viewWithTag:10] layer] setBorderColor:[UIColor blackColor].CGColor];
 
-	DDExpandableButton *colorButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 70.0f)
+	DDExpandableButton *colorButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 65.0f)
 																	   leftTitle:@"Color"
 																		 buttons:[NSArray arrayWithObjects:@"Black", @"Red", @"Green", @"Blue", nil]] autorelease];
 	[[self view] addSubview:colorButton];
@@ -82,7 +82,7 @@
 	[[colorButton.labels objectAtIndex:2] setHighlightedTextColor:[UIColor greenColor]];
 	[[colorButton.labels objectAtIndex:3] setHighlightedTextColor:[UIColor blueColor]];
 	
-	DDExpandableButton *borderButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 120.0f)
+	DDExpandableButton *borderButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 110.0f)
 																		leftTitle:@"Border"
 																		  buttons:[NSArray arrayWithObjects:@"Thin", @"Medium", @"Thick", nil]] autorelease];
 	[[self view] addSubview:borderButton];
@@ -92,6 +92,16 @@
 	[borderButton setUnSelectedLabelFont:[UIFont systemFontOfSize:borderButton.labelFont.pointSize]];
 	[borderButton updateDisplay];
 	[borderButton setSelectedItem:1];
+
+	DDExpandableButton *toggleButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 155.0f)
+																		leftTitle:nil
+																		  buttons:[NSArray arrayWithObjects:@"HDR On", @"HDR Off", nil]] autorelease];
+	[[self view] addSubview:toggleButton];
+	[toggleButton addTarget:self action:@selector(toggleBkgd:) forControlEvents:UIControlEventValueChanged];
+	[toggleButton setToggleMode:YES];
+	[toggleButton setInnerBorderWidth:0];
+	[toggleButton setHorizontalPadding:6];
+	[toggleButton updateDisplay];
 }
 
 - (void)viewDidUnload
@@ -138,6 +148,18 @@
 			break;
 		case 2:
 			[[[self.view viewWithTag:10] layer] setBorderWidth:12];
+			break;
+	}
+}
+- (void)toggleBkgd:(DDExpandableButton *)sender
+{
+	switch ([sender selectedItem])
+	{
+		case 0:
+			[self.view setBackgroundColor:[UIColor grayColor]];
+			break;
+		case 1:
+			[self.view setBackgroundColor:[UIColor lightGrayColor]];
 			break;
 	}
 }

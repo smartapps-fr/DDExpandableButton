@@ -25,6 +25,10 @@ A DDExpandableButton has the following properties:
 
 	Use animation during button state transitions.
 
+ - `@property (nonatomic,assign)	BOOL			toggleMode;`
+
+	Use button as a toggle (like "HDR On" / "HDR Off" button in camera app).
+
  - `@property (nonatomic,assign)	CGFloat		timeout;`
 
 	To shrink the button after a timeout. Use `0` if you want to disable timeout.
