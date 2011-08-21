@@ -202,7 +202,6 @@
 		maxHeight = MAX(maxHeight, [v defaultFrameSize].height + verticalPadding * 2.0f);
 		maxWidth = MAX(maxWidth, [v defaultFrameSize].width);
 	}
-	NSLog(@"%f", maxWidth);
 	
 	// borderWidth update
 	for (DDView *v in labels)
