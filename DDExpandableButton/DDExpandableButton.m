@@ -169,9 +169,13 @@
 {
 	[leftTitleView removeFromSuperview];
 	[leftTitleView release];
+	leftTitleView = nil;
 	
-	leftTitleView = [[self getViewFrom:leftTitle] retain];
-	[self addSubview:leftTitleView];
+	if (leftTitle != nil)
+	{
+		leftTitleView = [[self getViewFrom:leftTitle] retain];
+		[self addSubview:leftTitleView];
+	}
 }
 
 - (void)setButtons:(NSArray *)buttons
@@ -196,7 +200,7 @@
 {
 	// maxHeight update
 	maxWidth = 0;
-	maxHeight = [leftTitleView defaultFrameSize].height + verticalPadding * 2.0f;	
+	maxHeight = (leftTitleView != nil)?[leftTitleView defaultFrameSize].height + verticalPadding * 2.0f:0;	
 	for (DDView *v in labels)
 	{
 		maxHeight = MAX(maxHeight, [v defaultFrameSize].height + verticalPadding * 2.0f);
@@ -210,7 +214,9 @@
 	}
 	
 	cornerAdditionalPadding = roundf(maxHeight/2.2f) - borderWidth - horizontalPadding;
-	leftWidth = cornerAdditionalPadding + ((leftTitleView != nil)?horizontalPadding:0.0f) + [leftTitleView defaultFrameSize].width + (((innerBorderWidth == 0.0f) && (leftTitleView != nil))?horizontalPadding:0.0f);
+
+	leftWidth = cornerAdditionalPadding;
+	if (leftTitleView != nil) leftWidth += horizontalPadding + [leftTitleView defaultFrameSize].width + ((innerBorderWidth == 0)?horizontalPadding:0);
 	
 	self.layer.borderWidth  = borderWidth;
 	self.layer.borderColor  = borderColor.CGColor;
