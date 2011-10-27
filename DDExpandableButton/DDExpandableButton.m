@@ -88,6 +88,7 @@
 #pragma mark Default Values
 
 #define DEFAULT_USE_ANIMATION	YES
+#define DEFAULT_DISABLED_ALPHA	0.5f
 #define DEFAULT_TIMEOUT			4.0f
 #define DEFAULT_ALPHA			0.8f
 #define DEFAULT_BORDER_WIDTH	1.0f
@@ -266,6 +267,12 @@
 }
 
 #pragma mark Animation Methods
+
+- (void)setEnabled:(BOOL)enabled
+{
+	[super setEnabled:enabled];
+	self.alpha = enabled?1:DEFAULT_DISABLED_ALPHA;
+}
 
 - (void)shrinkButton
 {
