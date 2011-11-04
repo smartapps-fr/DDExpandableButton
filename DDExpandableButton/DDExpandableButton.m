@@ -466,6 +466,7 @@
 		v.backgroundColor = [UIColor clearColor];
 		v.opaque = YES;
 		v.contentMode = UIViewContentModeCenter;
+		v.clipsToBounds = YES;
 		return v;
 	}
 	else if (obj == nil)
