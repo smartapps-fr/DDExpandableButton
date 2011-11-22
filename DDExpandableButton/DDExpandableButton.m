@@ -424,9 +424,9 @@
         BOOL inside = NO;
 		
 		NSUInteger i = 0;
-        for (UILabel *label in labels)
+        for (DDView *v in labels)
 		{
-            if ([label pointInside:[[[event allTouches] anyObject] locationInView:label] withEvent:event])
+            if ([v pointInside:[[[event allTouches] anyObject] locationInView:v] withEvent:event])
 			{
                 inside = YES;
                 break;
