@@ -90,7 +90,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
 	self = [super initWithFrame:frame];
-	if (self)
+	if (self != nil)
 	{
 		// Flash Button like parameters	
 		expanded = NO;
@@ -119,7 +119,7 @@
 - (id)initWithPoint:(CGPoint)point leftTitle:(id)leftTitle buttons:(NSArray *)buttons
 {
 	self = [self initWithFrame:CGRectMake(point.x, point.y, 0, 0)];
-    if (self)
+    if (self != nil)
 	{
 		[self setLeftTitle:leftTitle];
 		[self setButtons:buttons];
