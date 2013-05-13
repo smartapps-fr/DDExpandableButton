@@ -3,6 +3,41 @@
 //  https://github.com/ddebin/DDExpandableButton
 //
 
+
+//
+//  ARC Helper
+//
+//  Version 2.2
+//
+//  Created by Nick Lockwood on 05/01/2012.
+//  Copyright 2012 Charcoal Design
+//
+//  Distributed under the permissive zlib license
+//  Get the latest version from here:
+//
+//  https://gist.github.com/1563325
+//
+
+#import <Availability.h>
+#undef ah_retain
+#undef ah_dealloc
+#undef ah_autorelease
+#undef ah_dealloc
+#if __has_feature(objc_arc)
+#define ah_retain self
+#define ah_release self
+#define ah_autorelease self
+#define ah_dealloc self
+#else
+#define ah_retain retain
+#define ah_release release
+#define ah_autorelease autorelease
+#define ah_dealloc dealloc
+#endif
+
+//  ARC Helper ends
+
+
 #import <QuartzCore/CALayer.h>
 #import "DDExpandableButton.h"
 
@@ -23,6 +58,7 @@
 
 @end
 
+
 #pragma mark Custom UILabel Class
 
 @interface DDExpandableButtonCustomUIImageView : UIImageView <DDExpandableButtonViewSource>
@@ -38,9 +74,9 @@
 
 @end
 
+
 #pragma mark -
 #pragma mark DDExpandableButton Class
-
 
 @interface DDExpandableButton (private)
 
@@ -68,6 +104,7 @@
 @synthesize innerBorderWidth;
 @synthesize labels;
 
+
 #pragma mark Default Values
 
 #define DEFAULT_USE_ANIMATION	YES
@@ -84,6 +121,7 @@
 #define DEFAULT_BKG_ALPHA		0.4f
 #define DEFAULT_FONT			[UIFont boldSystemFontOfSize:14.0f]
 #define DEFAULT_UNSELECTED_FONT	nil
+
 
 #pragma mark Init Methods
 
@@ -128,8 +166,10 @@
     return self;
 }
 
+
 #pragma mark dealloc
 
+#if !__has_feature(objc_arc)
 - (void)dealloc
 {
 	[leftTitleView release];
@@ -140,6 +180,8 @@
 	[labels release];
 	[super dealloc];
 }
+#endif
+
 
 #pragma mark Parameters Methods
 
@@ -152,12 +194,12 @@
 - (void)setLeftTitle:(id)leftTitle
 {
 	[leftTitleView removeFromSuperview];
-	[leftTitleView release];
+	[leftTitleView ah_release];
 	leftTitleView = nil;
 	
 	if (leftTitle != nil)
 	{
-		leftTitleView = [[self getViewFrom:leftTitle] retain];
+		leftTitleView = [[self getViewFrom:leftTitle] ah_retain];
 		[self addSubview:leftTitleView];
 	}
 }
@@ -168,7 +210,7 @@
 	{
 		[v removeFromSuperview];
 	}
-	[labels release];
+	[labels ah_release];
 	
 	NSMutableArray *_labels = [NSMutableArray arrayWithCapacity:[buttons count]];
 	for (NSObject *button in buttons)
@@ -177,7 +219,7 @@
 		[self addSubview:v];
 		[_labels addObject:v];
 	}
-	labels = [_labels retain];
+	labels = [_labels ah_retain];
 }
 
 - (void)updateDisplay
@@ -208,6 +250,7 @@
 	
 	[self setSelectedItem:0 animated:NO];
 }
+
 
 #pragma mark Frame Rect Methods
 
@@ -248,6 +291,7 @@
 		return [self shrunkFrameRect];
 	}
 }
+
 
 #pragma mark Animation Methods
 
@@ -390,6 +434,7 @@
 	}        
 }
 
+
 #pragma mark UIButton UIControlEventTouchUpInside target
 
 - (void)chooseLabel:(id)sender forEvent:(UIEvent *)event
@@ -428,29 +473,30 @@
     }
 }
 
+
 #pragma mark Utilities
 
 - (DDView *)getViewFrom:(id)obj
 {
 	if ([obj isKindOfClass:[NSString class]])
 	{
-		DDExpandableButtonCustomUILabel *v = [[[DDExpandableButtonCustomUILabel alloc] init] autorelease];
+		DDExpandableButtonCustomUILabel *v = [[DDExpandableButtonCustomUILabel alloc] init];
 		v.font = labelFont;
         v.textColor = textColor;
         v.backgroundColor = [UIColor clearColor];
 		v.textAlignment = UITextAlignmentCenter;
 		v.opaque = YES;
 		v.text = obj;
-		return v;
+		return [v ah_autorelease];
 	}
 	else if ([obj isKindOfClass:[UIImage class]])
 	{
-		DDExpandableButtonCustomUIImageView *v = [[[DDExpandableButtonCustomUIImageView alloc] initWithImage:obj] autorelease];
+		DDExpandableButtonCustomUIImageView *v = [[DDExpandableButtonCustomUIImageView alloc] initWithImage:obj];
 		v.backgroundColor = [UIColor clearColor];
 		v.opaque = YES;
 		v.contentMode = UIViewContentModeCenter;
 		v.clipsToBounds = YES;
-		return v;
+		return [v ah_autorelease];
 	}
 	else if (obj == nil)
 	{
