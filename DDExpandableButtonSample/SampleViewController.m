@@ -16,6 +16,12 @@
     [super dealloc];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    self.torchSession = nil;
+}
+
 #pragma mark View lifecycle
 
 - (void)viewDidLoad
@@ -102,12 +108,6 @@
 	[toggleButton setInnerBorderWidth:0];
 	[toggleButton setHorizontalPadding:6];
 	[toggleButton updateDisplay];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-	self.torchSession = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
