@@ -23,7 +23,7 @@
 		69BA0C8313E4B7FE00CA7570 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0C8213E4B7FE00CA7570 /* Icon-72.png */; };
 		69BA0CB113E5DCEB00CA7570 /* SampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0CAF13E5DCEB00CA7570 /* SampleViewController.xib */; };
 		69BA0CB213E5DCEB00CA7570 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0CB013E5DCEB00CA7570 /* MainWindow.xib */; };
-		69BA0CB613E5E04700CA7570 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0CB513E5E04600CA7570 /* README.markdown */; };
+		D0F8C75A1757D2A0009D2F98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D0F8C7591757D2A0009D2F98 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +49,7 @@
 		69BA0C8213E4B7FE00CA7570 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		69BA0CAF13E5DCEB00CA7570 /* SampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleViewController.xib; sourceTree = "<group>"; };
 		69BA0CB013E5DCEB00CA7570 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		69BA0CB513E5E04600CA7570 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		D0F8C7591757D2A0009D2F98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 		69BA0C3513E4771700CA7570 = {
 			isa = PBXGroup;
 			children = (
-				69BA0CB513E5E04600CA7570 /* README.markdown */,
+				D0F8C7591757D2A0009D2F98 /* README.md */,
 				69BA0C6813E4773F00CA7570 /* DDExpandableButton */,
 				69BA0C4A13E4771700CA7570 /* DDExpandableButtonSample */,
 				69BA0C4313E4771700CA7570 /* Frameworks */,
@@ -194,7 +194,7 @@
 				69BA0C8313E4B7FE00CA7570 /* Icon-72.png in Resources */,
 				69BA0CB113E5DCEB00CA7570 /* SampleViewController.xib in Resources */,
 				69BA0CB213E5DCEB00CA7570 /* MainWindow.xib in Resources */,
-				69BA0CB613E5E04700CA7570 /* README.markdown in Resources */,
+				D0F8C75A1757D2A0009D2F98 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
