@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6929AE5D1769CF34005FF093 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6929AE5A1769CF34005FF093 /* Default.png */; };
+		6929AE5E1769CF34005FF093 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6929AE5B1769CF34005FF093 /* Default@2x.png */; };
+		6929AE5F1769CF34005FF093 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6929AE5C1769CF34005FF093 /* Default-568h@2x.png */; };
 		69BA0C4513E4771700CA7570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C4413E4771700CA7570 /* UIKit.framework */; };
 		69BA0C4713E4771700CA7570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C4613E4771700CA7570 /* Foundation.framework */; };
 		69BA0C4913E4771700CA7570 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69BA0C4813E4771700CA7570 /* CoreGraphics.framework */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6929AE5A1769CF34005FF093 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6929AE5B1769CF34005FF093 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		6929AE5C1769CF34005FF093 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		69BA0C4013E4771700CA7570 /* DDExpButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDExpButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69BA0C4413E4771700CA7570 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69BA0C4613E4771700CA7570 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +77,9 @@
 		69BA0C3513E4771700CA7570 = {
 			isa = PBXGroup;
 			children = (
+				6929AE5A1769CF34005FF093 /* Default.png */,
+				6929AE5B1769CF34005FF093 /* Default@2x.png */,
+				6929AE5C1769CF34005FF093 /* Default-568h@2x.png */,
 				D0F8C7591757D2A0009D2F98 /* README.md */,
 				69BA0C6813E4773F00CA7570 /* DDExpandableButton */,
 				69BA0C4A13E4771700CA7570 /* DDExpandableButtonSample */,
@@ -163,6 +172,7 @@
 		69BA0C3713E4771700CA7570 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = SmartApps;
 			};
 			buildConfigurationList = 69BA0C3A13E4771700CA7570 /* Build configuration list for PBXProject "DDExpandableButtonSample" */;
@@ -195,6 +205,9 @@
 				69BA0CB113E5DCEB00CA7570 /* SampleViewController.xib in Resources */,
 				69BA0CB213E5DCEB00CA7570 /* MainWindow.xib in Resources */,
 				D0F8C75A1757D2A0009D2F98 /* README.md in Resources */,
+				6929AE5D1769CF34005FF093 /* Default.png in Resources */,
+				6929AE5E1769CF34005FF093 /* Default@2x.png in Resources */,
+				6929AE5F1769CF34005FF093 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +284,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DDExpandableButtonSample/DDExpandableButtonSample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DDExpandableButtonSample/DDExpandableButtonSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -285,6 +299,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DDExpandableButtonSample/DDExpandableButtonSample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DDExpandableButtonSample/DDExpandableButtonSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
