@@ -216,6 +216,7 @@
 	for (NSObject *button in buttons)
 	{
 		DDView *v = [self getViewFrom:button];
+		v.alpha = 0;
 		[self addSubview:v];
 		[_labels addObject:v];
 	}
@@ -348,6 +349,7 @@
 			CGRect labelRect = CGRectMake(x, 0, [v defaultFrameSize].width + horizontalPadding * 2, maxHeight);
 			x += labelRect.size.width - v.layer.borderWidth;
 			v.frame = labelRect;
+			v.alpha = 1;
 			
 			if ((i > 0) && (i < ([labels count] - 1)) && (v.layer.borderWidth > 0))
 			{
@@ -385,16 +387,19 @@
 			if (i < selectedItem)
 			{
 				r.origin.x = leftWidth;
+				v.alpha = 0;
 			}
 			else if (i == selectedItem)
 			{
 				r.size.width = [v defaultFrameSize].width + horizontalPadding * 2;
 				r.origin.x = leftWidth;
 				selectedWidth = r.size.width;
+				v.alpha = 1;
 			}
 			else if (i > selectedItem)
 			{
 				r.origin.x = leftWidth + selectedWidth;
+				v.alpha = 0;
 			}
 			v.layer.borderColor = [UIColor colorWithWhite:0.0f alpha:0.0f].CGColor;
 			v.frame = r;
