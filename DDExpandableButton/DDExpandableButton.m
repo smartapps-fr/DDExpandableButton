@@ -206,6 +206,7 @@
 
 - (void)setButtons:(NSArray *)buttons
 {
+	// Remove all existing labels
 	for (DDView *v in labels)
 	{
 		[v removeFromSuperview];
@@ -227,7 +228,7 @@
 {
 	// maxHeight update
 	maxWidth = 0;
-	maxHeight = (leftTitleView != nil)?[leftTitleView defaultFrameSize].height + verticalPadding * 2.0f:0;
+	maxHeight = (leftTitleView != nil)?([leftTitleView defaultFrameSize].height + verticalPadding * 2.0f):0;
 	for (DDView *v in labels)
 	{
 		maxHeight = MAX(maxHeight, [v defaultFrameSize].height + verticalPadding * 2.0f);
@@ -240,14 +241,14 @@
 		v.layer.borderWidth = innerBorderWidth;
 	}
 
-	cornerAdditionalPadding = roundf(maxHeight/2.2f) - borderWidth - horizontalPadding;
+	cornerAdditionalPadding = roundf(maxHeight / 2.2f) - borderWidth - horizontalPadding;
 
 	leftWidth = cornerAdditionalPadding;
 	if (leftTitleView != nil) leftWidth += horizontalPadding + [leftTitleView defaultFrameSize].width + ((innerBorderWidth == 0)?horizontalPadding:0);
 
 	self.layer.borderWidth	= borderWidth;
 	self.layer.borderColor	= borderColor.CGColor;
-	self.layer.cornerRadius = maxHeight/2.0f;
+	self.layer.cornerRadius = roundf(maxHeight / 2.0f);
 
 	[self setSelectedItem:0 animated:NO];
 }
@@ -334,7 +335,7 @@
 			{
 				if ([v isKindOfClass:[DDExpandableButtonCustomUILabel class]])
 				{
-					[(DDExpandableButtonCustomUILabel *)v setFont:(unSelectedLabelFont != nil)?unSelectedLabelFont:labelFont];
+					[(DDExpandableButtonCustomUILabel *)v setFont:((unSelectedLabelFont != nil)?unSelectedLabelFont:labelFont)];
 				}
 				if ([v respondsToSelector:@selector(setHighlighted:)])
 				{
