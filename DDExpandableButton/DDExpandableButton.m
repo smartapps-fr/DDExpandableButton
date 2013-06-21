@@ -1,21 +1,21 @@
 //
-//  DDExpandableButton.m
-//  https://github.com/ddebin/DDExpandableButton
+//	DDExpandableButton.m
+//	https://github.com/ddebin/DDExpandableButton
 //
 
 
 //
-//  ARC Helper
+//	ARC Helper
 //
-//  Version 2.2
+//	Version 2.2
 //
-//  Created by Nick Lockwood on 05/01/2012.
-//  Copyright 2012 Charcoal Design
+//	Created by Nick Lockwood on 05/01/2012.
+//	Copyright 2012 Charcoal Design
 //
-//  Distributed under the permissive zlib license
-//  Get the latest version from here:
+//	Distributed under the permissive zlib license
+//	Get the latest version from here:
 //
-//  https://gist.github.com/1563325
+//	https://gist.github.com/1563325
 //
 
 #import <Availability.h>
@@ -35,7 +35,7 @@
 #define ah_dealloc dealloc
 #endif
 
-//  ARC Helper ends
+//	ARC Helper ends
 
 
 #import <QuartzCore/CALayer.h>
@@ -120,7 +120,7 @@
 #define DEFAULT_BKG_WHITE		1.0f
 #define DEFAULT_BKG_ALPHA		0.4f
 #define DEFAULT_FONT			[UIFont boldSystemFontOfSize:14.0f]
-#define DEFAULT_UNSELECTED_FONT	nil
+#define DEFAULT_UNSELECTED_FONT nil
 
 
 #pragma mark Init Methods
@@ -130,7 +130,7 @@
 	self = [super initWithFrame:frame];
 	if (self != nil)
 	{
-		// Flash Button like parameters	
+		// Flash Button like parameters
 		expanded = NO;
 		maxHeight = 0;
 		useAnimation = DEFAULT_USE_ANIMATION;
@@ -139,14 +139,14 @@
 		horizontalPadding = DEFAULT_HORI_PADDING;
 		verticalPadding = DEFAULT_VERT_PADDING;
 		timeout = DEFAULT_TIMEOUT;
-		
+
 		[self addTarget:self action:@selector(chooseLabel:forEvent:) forControlEvents:UIControlEventTouchUpInside];
-		
+
 		self.borderColor = [UIColor colorWithWhite:DEFAULT_BORDER_WHITE alpha:DEFAULT_BORDER_ALPHA];
 		self.textColor = borderColor;
 		self.labelFont = DEFAULT_FONT;
 		self.unSelectedLabelFont = DEFAULT_UNSELECTED_FONT;
-		
+
 		self.backgroundColor = [UIColor colorWithWhite:DEFAULT_BKG_WHITE alpha:DEFAULT_BKG_ALPHA];
 		self.alpha = DEFAULT_ALPHA;
 		self.opaque = YES;
@@ -157,13 +157,13 @@
 - (id)initWithPoint:(CGPoint)point leftTitle:(id)leftTitle buttons:(NSArray *)buttons
 {
 	self = [self initWithFrame:CGRectMake(point.x, point.y, 0, 0)];
-    if (self != nil)
+	if (self != nil)
 	{
 		[self setLeftTitle:leftTitle];
 		[self setButtons:buttons];
 		[self updateDisplay];
-    }
-    return self;
+	}
+	return self;
 }
 
 
@@ -196,7 +196,7 @@
 	[leftTitleView removeFromSuperview];
 	[leftTitleView ah_release];
 	leftTitleView = nil;
-	
+
 	if (leftTitle != nil)
 	{
 		leftTitleView = [[self getViewFrom:leftTitle] ah_retain];
@@ -211,7 +211,7 @@
 		[v removeFromSuperview];
 	}
 	[labels ah_release];
-	
+
 	NSMutableArray *_labels = [NSMutableArray arrayWithCapacity:[buttons count]];
 	for (NSObject *button in buttons)
 	{
@@ -227,28 +227,28 @@
 {
 	// maxHeight update
 	maxWidth = 0;
-	maxHeight = (leftTitleView != nil)?[leftTitleView defaultFrameSize].height + verticalPadding * 2.0f:0;	
+	maxHeight = (leftTitleView != nil)?[leftTitleView defaultFrameSize].height + verticalPadding * 2.0f:0;
 	for (DDView *v in labels)
 	{
 		maxHeight = MAX(maxHeight, [v defaultFrameSize].height + verticalPadding * 2.0f);
 		maxWidth = MAX(maxWidth, [v defaultFrameSize].width);
 	}
-	
+
 	// borderWidth update
 	for (DDView *v in labels)
 	{
 		v.layer.borderWidth = innerBorderWidth;
 	}
-	
+
 	cornerAdditionalPadding = roundf(maxHeight/2.2f) - borderWidth - horizontalPadding;
 
 	leftWidth = cornerAdditionalPadding;
 	if (leftTitleView != nil) leftWidth += horizontalPadding + [leftTitleView defaultFrameSize].width + ((innerBorderWidth == 0)?horizontalPadding:0);
-	
-	self.layer.borderWidth  = borderWidth;
-	self.layer.borderColor  = borderColor.CGColor;
-	self.layer.cornerRadius = maxHeight/2.0f;        
-	
+
+	self.layer.borderWidth	= borderWidth;
+	self.layer.borderColor	= borderColor.CGColor;
+	self.layer.cornerRadius = maxHeight/2.0f;
+
 	[self setSelectedItem:0 animated:NO];
 }
 
@@ -315,22 +315,22 @@
 - (void)setExpanded:(BOOL)_expanded animated:(BOOL)animated
 {
 	expanded = _expanded;
-	
+
 	if (animated)
 	{
 		[UIView beginAnimations:nil context:nil];
 		[UIView setAnimationDuration:0.2f];
 	}
-	
+
 	// set labels appearance
-	
+
 	if (expanded)
 	{
-        NSUInteger i = 0;
+		NSUInteger i = 0;
 		CGFloat x = leftWidth;
-        for (DDView *v in labels)
+		for (DDView *v in labels)
 		{
-            if (i != selectedItem)
+			if (i != selectedItem)
 			{
 				if ([v isKindOfClass:[DDExpandableButtonCustomUILabel class]])
 				{
@@ -340,25 +340,25 @@
 				{
 					[v setHighlighted:NO];
 				}
-            }
+			}
 			else if ([v respondsToSelector:@selector(setHighlighted:)])
 			{
 				[v setHighlighted:YES];
 			}
-			
+
 			CGRect labelRect = CGRectMake(x, 0, [v defaultFrameSize].width + horizontalPadding * 2, maxHeight);
 			x += labelRect.size.width - v.layer.borderWidth;
 			v.frame = labelRect;
 			v.alpha = 1;
-			
+
 			if ((i > 0) && (i < ([labels count] - 1)) && (v.layer.borderWidth > 0))
 			{
 				v.layer.borderColor = borderColor.CGColor;
 			}
-			
-            i++;
-        }
-		
+
+			i++;
+		}
+
 		if (timeout > 0)
 		{
 			[self performSelector:@selector(shrinkButton) withObject:nil afterDelay:timeout];
@@ -366,9 +366,9 @@
 	}
 	else
 	{
-		[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(shrinkButton) object:nil]; 
-		
-        NSUInteger i = 0;
+		[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(shrinkButton) object:nil];
+
+		NSUInteger i = 0;
 		CGFloat selectedWidth = 0;
 		for (DDView *v in labels)
 		{
@@ -381,7 +381,7 @@
 			{
 				[v setHighlighted:(i == selectedItem)];
 			}
-			
+
 			CGRect r = CGRectZero;
 			r.size.height = maxHeight;
 			if (i < selectedItem)
@@ -403,17 +403,17 @@
 			}
 			v.layer.borderColor = [borderColor colorWithAlphaComponent:0].CGColor;
 			v.frame = r;
-			
+
 			i++;
 		}
 	}
-	
+
 	// set title frames
 	leftTitleView.frame = CGRectMake(cornerAdditionalPadding + horizontalPadding, 0, [leftTitleView defaultFrameSize].width, maxHeight);
-	
+
 	// set whole frame
 	[self setFrame:[self currentFrameRect]];
-	
+
 	if (animated)
 	{
 		[UIView commitAnimations];
@@ -426,17 +426,17 @@
 }
 
 - (void)setSelectedItem:(NSUInteger)selected animated:(BOOL)animated
-{	
+{
 	BOOL notify = (selectedItem != selected);
-	
+
 	selectedItem = selected;
-	
+
 	[self setExpanded:NO animated:animated];
-	
+
 	if (notify)
 	{
 		[self sendActionsForControlEvents:UIControlEventValueChanged];
-	}        
+	}
 }
 
 
@@ -448,34 +448,34 @@
 	{
 		[self setSelectedItem:((selectedItem + 1) % [labels count])];
 	}
-    else if (!expanded)
+	else if (!expanded)
 	{
 		[self setExpanded:YES animated:useAnimation];
-    }
+	}
 	else
 	{
-        BOOL inside = NO;
-		
+		BOOL inside = NO;
+
 		NSUInteger i = 0;
-        for (DDView *v in labels)
+		for (DDView *v in labels)
 		{
-            if ([v pointInside:[[[event allTouches] anyObject] locationInView:v] withEvent:event])
+			if ([v pointInside:[[[event allTouches] anyObject] locationInView:v] withEvent:event])
 			{
-                inside = YES;
-                break;
-            }
+				inside = YES;
+				break;
+			}
 			i++;
-        }
-        
-        if (inside)
+		}
+
+		if (inside)
 		{
-            [self setSelectedItem:i animated:useAnimation];
-        }
+			[self setSelectedItem:i animated:useAnimation];
+		}
 		else
 		{
-            [self setSelectedItem:selectedItem animated:useAnimation];
+			[self setSelectedItem:selectedItem animated:useAnimation];
 		}
-    }
+	}
 }
 
 
@@ -487,8 +487,8 @@
 	{
 		DDExpandableButtonCustomUILabel *v = [[DDExpandableButtonCustomUILabel alloc] init];
 		v.font = labelFont;
-        v.textColor = textColor;
-        v.backgroundColor = [UIColor clearColor];
+		v.textColor = textColor;
+		v.backgroundColor = [UIColor clearColor];
 		v.textAlignment = UITextAlignmentCenter;
 		v.opaque = YES;
 		v.text = obj;

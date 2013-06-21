@@ -1,6 +1,6 @@
 //
-//  SampleViewController.h
-//  DDExpandableButtonSample
+//	SampleViewController.h
+//	DDExpandableButtonSample
 //
 
 #import <UIKit/UIKit.h>

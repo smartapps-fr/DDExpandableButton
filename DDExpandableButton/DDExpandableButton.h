@@ -1,6 +1,6 @@
 //
-//  DDExpandableButton.h
-//  https://github.com/ddebin/DDExpandableButton
+//	DDExpandableButton.h
+//	https://github.com/ddebin/DDExpandableButton
 //
 
 #ifndef __IPHONE_3_0
@@ -20,21 +20,21 @@
 	BOOL		useAnimation;
 	BOOL		toggleMode;
 	CGFloat		timeout;
-	CGFloat 	horizontalPadding;
-	CGFloat 	verticalPadding;
-	CGFloat 	borderWidth;
-	CGFloat 	innerBorderWidth;
-    NSUInteger	selectedItem;
+	CGFloat		horizontalPadding;
+	CGFloat		verticalPadding;
+	CGFloat		borderWidth;
+	CGFloat		innerBorderWidth;
+	NSUInteger	selectedItem;
 	UIColor		*borderColor;
-	UIColor 	*textColor;
-	UIFont  	*labelFont;
-	UIFont  	*unSelectedLabelFont;
-	
+	UIColor		*textColor;
+	UIFont		*labelFont;
+	UIFont		*unSelectedLabelFont;
+
 	CGFloat		cornerAdditionalPadding;
-	CGFloat 	leftWidth;
-	CGFloat 	maxHeight;
-	CGFloat 	maxWidth;
-    NSArray 	*labels;
+	CGFloat		leftWidth;
+	CGFloat		maxHeight;
+	CGFloat		maxWidth;
+	NSArray		*labels;
 	DDView		*leftTitleView;
 }
 
@@ -51,16 +51,16 @@
 @property (nonatomic,assign)	CGFloat		timeout;
 
 // Horizontal padding space between items.
-@property (nonatomic,assign)	CGFloat 	horizontalPadding;
+@property (nonatomic,assign)	CGFloat		horizontalPadding;
 
 // Vertical padding space above and below items.
-@property (nonatomic,assign)	CGFloat 	verticalPadding;
+@property (nonatomic,assign)	CGFloat		verticalPadding;
 
 // Width (thickness) of the button border.
-@property (nonatomic,assign)	CGFloat 	borderWidth;
+@property (nonatomic,assign)	CGFloat		borderWidth;
 
 // Width (thickness) of the inner borders between items.
-@property (nonatomic,assign)	CGFloat 	innerBorderWidth;
+@property (nonatomic,assign)	CGFloat		innerBorderWidth;
 
 // Selected item number.
 @property (nonatomic,assign)	NSUInteger	selectedItem;
@@ -78,7 +78,7 @@
 @property (nonatomic,retain)	UIFont		*unSelectedLabelFont;
 
 // Access UIView used to draw labels.
-@property (nonatomic,readonly)	NSArray 	*labels;
+@property (nonatomic,readonly)	NSArray		*labels;
 
 - (id)initWithPoint:(CGPoint)point leftTitle:(id)leftTitle buttons:(NSArray *)buttons;
 

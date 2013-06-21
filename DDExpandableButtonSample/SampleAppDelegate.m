@@ -1,6 +1,6 @@
 //
-//  SampleAppDelegate.m
-//  DDExpandableButtonSample
+//	SampleAppDelegate.m
+//	DDExpandableButtonSample
 //
 
 #import "SampleAppDelegate.h"
@@ -18,14 +18,14 @@
 	[self.window addSubview:self.viewController.view];
 	[self.window setRootViewController:self.viewController];
 	[self.window makeKeyAndVisible];
-    return YES;
+	return YES;
 }
 
 - (void)dealloc
 {
 	[_window release];
 	[_viewController release];
-    [super dealloc];
+	[super dealloc];
 }
 
 @end

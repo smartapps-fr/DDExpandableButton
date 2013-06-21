@@ -1,6 +1,6 @@
 //
-//  DDExpandableButtonSampleViewController.m
-//  DDExpandableButtonSample
+//	DDExpandableButtonSampleViewController.m
+//	DDExpandableButtonSample
 //
 
 #import "SampleViewController.h"
@@ -13,21 +13,21 @@
 - (void)dealloc
 {
 	[torchSession release];
-    [super dealloc];
+	[super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    self.torchSession = nil;
+	[super didReceiveMemoryWarning];
+	self.torchSession = nil;
 }
 
 #pragma mark View lifecycle
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-		
+	[super viewDidLoad];
+
 	DDExpandableButton *torchModeButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 20.0f)
 																		   leftTitle:[UIImage imageNamed:@"Flash.png"]
 																			 buttons:[NSArray arrayWithObjects:@"Auto", @"On", @"Off", nil]] autorelease];
@@ -41,39 +41,39 @@
 	// Torch related settings
 	// Setting up flashlight for later use...
 	// cf. http://stackoverflow.com/questions/3190034#3367424
-    if (NSClassFromString(@"AVCaptureDevice") != nil)
+	if (NSClassFromString(@"AVCaptureDevice") != nil)
 	{
-        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-		
-        if ([device hasTorch])
+		AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+
+		if ([device hasTorch])
 		{
-            if (device.torchMode == AVCaptureTorchModeOff)
-			{				
-                AVCaptureDeviceInput *flashInput = [AVCaptureDeviceInput deviceInputWithDevice:device error: nil];
-                AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
-				
-                AVCaptureSession *session = [[AVCaptureSession alloc] init];
-				
+			if (device.torchMode == AVCaptureTorchModeOff)
+			{
+				AVCaptureDeviceInput *flashInput = [AVCaptureDeviceInput deviceInputWithDevice:device error: nil];
+				AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
+
+				AVCaptureSession *session = [[AVCaptureSession alloc] init];
+
 				[session beginConfiguration];
-                [device lockForConfiguration:nil];
-				
-                [session addInput:flashInput];
-                [session addOutput:output];
-				
-                [device unlockForConfiguration];
-				
-                [output release];
-				
+				[device lockForConfiguration:nil];
+
+				[session addInput:flashInput];
+				[session addOutput:output];
+
+				[device unlockForConfiguration];
+
+				[output release];
+
 				[session commitConfiguration];
 				[session startRunning];
-				
+
 				[self setTorchSession:session];
 				[session release];
 			}
 
 			[torchModeButton setSelectedItem:(2 - [device torchMode])];
-        }
-    }
+		}
+	}
 
 	[[[self.view viewWithTag:10] layer] setBorderColor:[UIColor blackColor].CGColor];
 
@@ -87,7 +87,7 @@
 	[[colorButton.labels objectAtIndex:1] setHighlightedTextColor:[UIColor redColor]];
 	[[colorButton.labels objectAtIndex:2] setHighlightedTextColor:[UIColor greenColor]];
 	[[colorButton.labels objectAtIndex:3] setHighlightedTextColor:[UIColor blueColor]];
-	
+
 	DDExpandableButton *borderButton = [[[DDExpandableButton alloc] initWithPoint:CGPointMake(20.0f, 110.0f)
 																		leftTitle:@"Border"
 																		  buttons:[NSArray arrayWithObjects:@"Thin", @"Medium", @"Thick", nil]] autorelease];
@@ -112,7 +112,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 #pragma mark UIControlEventValueChanged selectors
@@ -169,13 +169,13 @@
 	if (NSClassFromString(@"AVCaptureDevice") != nil)
 	{
 		AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-		
+
 		if ([device hasTorch])
 		{
 			[device lockForConfiguration:nil];
 			[device setTorchMode:(2 - [sender selectedItem])];
 			[device unlockForConfiguration];
-		}		
+		}
 	}
 }
 
