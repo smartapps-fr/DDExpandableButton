@@ -401,7 +401,7 @@
 				r.origin.x = leftWidth + selectedWidth;
 				v.alpha = 0;
 			}
-			v.layer.borderColor = [UIColor colorWithWhite:0.0f alpha:0.0f].CGColor;
+			v.layer.borderColor = [borderColor colorWithAlphaComponent:0].CGColor;
 			v.frame = r;
 			
 			i++;
