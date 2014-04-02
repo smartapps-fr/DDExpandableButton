@@ -39,6 +39,7 @@
 
 
 #import <QuartzCore/CALayer.h>
+#import <tgmath.h>
 #import "DDExpandableButton.h"
 
 
@@ -241,14 +242,14 @@
 		v.layer.borderWidth = innerBorderWidth;
 	}
 
-	cornerAdditionalPadding = roundf(maxHeight / 2.2f) - borderWidth - horizontalPadding;
+	cornerAdditionalPadding = round(maxHeight / 2.2f) - borderWidth - horizontalPadding;
 
 	leftWidth = cornerAdditionalPadding;
 	if (leftTitleView != nil) leftWidth += horizontalPadding + [leftTitleView defaultFrameSize].width + ((innerBorderWidth == 0)?horizontalPadding:0);
 
 	self.layer.borderWidth	= borderWidth;
 	self.layer.borderColor	= borderColor.CGColor;
-	self.layer.cornerRadius = roundf(maxHeight / 2.0f);
+	self.layer.cornerRadius = round(maxHeight / 2.0f);
 
 	[self setSelectedItem:0 animated:NO];
 }
@@ -490,7 +491,7 @@
 		v.font = labelFont;
 		v.textColor = textColor;
 		v.backgroundColor = [UIColor clearColor];
-		v.textAlignment = UITextAlignmentCenter;
+		v.textAlignment = NSTextAlignmentCenter;
 		v.opaque = YES;
 		v.text = obj;
 		return [v ah_autorelease];
@@ -510,8 +511,11 @@
 	}
 	else
 	{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
 		NSAssert([obj isKindOfClass:[UIView class]], @"obj must be an UIView class !");
 		NSAssert([obj respondsToSelector:@selector(defaultFrameWidth)], @"obj must implement - (CGFloat)defaultFrameWidth !");
+#pragma clang diagnostic pop
 		return obj;
 	}
 }
