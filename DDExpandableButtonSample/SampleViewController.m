@@ -110,9 +110,9 @@
 	[toggleButton updateDisplay];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (NSUInteger)supportedInterfaceOrientations
 {
-	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+	return UIInterfaceOrientationMaskPortrait;
 }
 
 #pragma mark UIControlEventValueChanged selectors
@@ -173,7 +173,7 @@
 		if ([device hasTorch])
 		{
 			[device lockForConfiguration:nil];
-			[device setTorchMode:(2 - [sender selectedItem])];
+			[device setTorchMode:(AVCaptureTorchMode)(2 - [sender selectedItem])];
 			[device unlockForConfiguration];
 		}
 	}
