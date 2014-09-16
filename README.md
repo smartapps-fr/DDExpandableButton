@@ -5,7 +5,7 @@ DDExpandableButton
 Purpose
 --------------
 
-`DDExpandableButton` is a single-file iOS 3.0+ non-ARC class (ARC compatible) designed to be used like an expandable `UIButton` ; as seen in the iOS Camera app for the *flash* button.
+`DDExpandableButton` is a single-file iOS 5.0+ non-ARC class (ARC compatible) designed to be used like an expandable `UIButton` ; as seen in the iOS Camera app for the *flash* button.
 
 *Originally inspired by [ExpandyButton](https://github.com/iosdeveloper/ExpandyButton).*
 
@@ -114,7 +114,3 @@ License
 ---------------
 
 DDExpandableButton is available under the MIT license. See the LICENSE file for more info.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ddebin/ddexpandablebutton/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

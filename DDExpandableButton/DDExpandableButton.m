@@ -43,8 +43,8 @@
 #import "DDExpandableButton.h"
 
 
-#pragma mark -
-#pragma mark Custom UIImageView Class
+#pragma mark - Custom UIImageView Class
+
 
 @interface DDExpandableButtonCustomUILabel : UILabel <DDExpandableButtonViewSource>
 
@@ -60,7 +60,8 @@
 @end
 
 
-#pragma mark Custom UILabel Class
+#pragma mark - Custom UILabel Class
+
 
 @interface DDExpandableButtonCustomUIImageView : UIImageView <DDExpandableButtonViewSource>
 
@@ -76,8 +77,8 @@
 @end
 
 
-#pragma mark -
-#pragma mark DDExpandableButton Class
+#pragma mark - DDExpandableButton Class
+
 
 @interface DDExpandableButton (private)
 
@@ -87,6 +88,7 @@
 - (DDView *)getViewFrom:(id)obj;
 
 @end
+
 
 @implementation DDExpandableButton
 
@@ -124,7 +126,7 @@
 #define DEFAULT_UNSELECTED_FONT nil
 
 
-#pragma mark Init Methods
+#pragma mark - Init Methods
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -168,7 +170,7 @@
 }
 
 
-#pragma mark dealloc
+#pragma mark - Dealloc
 
 #if !__has_feature(objc_arc)
 - (void)dealloc
@@ -184,7 +186,7 @@
 #endif
 
 
-#pragma mark Parameters Methods
+#pragma mark - Parameters Methods
 
 - (void)disableTimeout
 {
@@ -255,7 +257,7 @@
 }
 
 
-#pragma mark Frame Rect Methods
+#pragma mark - Frame Rect Methods
 
 - (CGRect)shrunkFrameRect
 {
@@ -296,7 +298,7 @@
 }
 
 
-#pragma mark Animation Methods
+#pragma mark - Animation Methods
 
 - (void)setEnabled:(BOOL)enabled
 {
@@ -442,7 +444,7 @@
 }
 
 
-#pragma mark UIButton UIControlEventTouchUpInside target
+#pragma mark - UIButton UIControlEventTouchUpInside target
 
 - (void)chooseLabel:(id)sender forEvent:(UIEvent *)event
 {
@@ -481,7 +483,7 @@
 }
 
 
-#pragma mark Utilities
+#pragma mark - Utilities
 
 - (DDView *)getViewFrom:(id)obj
 {
@@ -511,11 +513,8 @@
 	}
 	else
 	{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
 		NSAssert([obj isKindOfClass:[UIView class]], @"obj must be an UIView class !");
-		NSAssert([obj respondsToSelector:@selector(defaultFrameWidth)], @"obj must implement - (CGFloat)defaultFrameWidth !");
-#pragma clang diagnostic pop
+		NSAssert([obj conformsToProtocol:@protocol(DDExpandableButtonViewSource)], @"obj must implement protocol DDExpandableButtonViewSource !");
 		return obj;
 	}
 }
